@@ -8,32 +8,32 @@
 
 Console.Clear();
 
-int[,] CreateArray(int rows, int columns)
+double[,] CreateArray(int rows, int columns)
 {
-    int[,] array = new int[rows, columns]; // Создаем 2-мерный массив
+    double[,] array = new double[rows, columns]; // Создаем 2-мерный массив
     Random rnd = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = rnd.Next(10, 100); // задаем параметр переменных i, j
+            array[i, j] = rnd.Next(-90, 100)/10.0; // задаем параметр переменных i, j, ДЛЯ ВЕЩЕСТВЕННЫХ ЧИСЕЛ
         }
     }
     return array;
 }
 
-void PrintArray(int[,] array)
+void PrintArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         System.Console.WriteLine();
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write($"{array[i, j]}\t");  // значение "\t" это табуляция
+            System.Console.Write($"{array[i, j]} \t");  // значение "\t" это табуляция
         }
     }
     System.Console.WriteLine();
 }
 
-int[,] matrix = CreateArray(3, 4); // задаем размер массива
+double[,] matrix = CreateArray(3, 4); // задаем размер массива
 PrintArray(matrix);
